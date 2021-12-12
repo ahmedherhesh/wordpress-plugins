@@ -1,0 +1,52 @@
+.herhesh-books {
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}
+.herhesh-books .book {
+  width: 220px;
+  height: 300px;
+  margin-bottom: 5px;
+}
+.herhesh-books .book .book-img {
+  width: 100%;
+  height: 100%;
+}
+.single-book .author {
+  font-size: 13px;
+}
+.single-book .details {
+  font-size: 16px;
+}
+.single-book .book-img {
+  height: 300px;
+  max-width: 250px;
+}
+.single-book .details {
+  direction: rtl;
+}
+.single-book .details .rating,.single-book .details .author{
+    direction: ltr;
+}
+.container .row{
+    justify-content: center;
+}
+.star{
+  cursor: pointer;
+}
+.comments-section{
+  margin-top:30px
+}
+.comments-section  .comments-section-title{
+  text-align:center;
+} 
+.comments-section .comment{
+  margin-bottom:30px 
+}
+.single-book .quotes{
+  font-size: 16px;
+}
+.single-book .quotes .title{
+  text-align: center;
+}

@@ -34,8 +34,3 @@ function herhesh_books_template($template)
     return $template;
 }
 add_filter('single_template', 'herhesh_books_template');
-
-function herhesh_books_author_template($template){
-    return $template;
-}
-add_filter('single_template','herhesh_books_author_template');

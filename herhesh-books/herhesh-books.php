@@ -34,3 +34,12 @@ function herhesh_books_template($template)
     return $template;
 }
 add_filter('single_template', 'herhesh_books_template');
+
+function herhesh_books_author_template($template)
+{
+    if (is_author()) {
+        $template = plugin_dir_path(__FILE__) . 'templates/book-author-template.php';
+    }
+    return $template;
+}
+add_filter('template_include', 'herhesh_books_author_template');

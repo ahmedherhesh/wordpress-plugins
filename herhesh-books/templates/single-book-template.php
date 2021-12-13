@@ -1,6 +1,5 @@
 <?php
 get_header();
-echo '<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">';
 $post_online_store = get_post_meta($post->ID, 'online-stores', true);
 $post_quotes = get_post_meta($post->ID, 'quotes', true);
 // The comment Query
@@ -26,18 +25,26 @@ function rating($comment_id, $rating_val = null)
     }
 }
 ?>
+<style>
+    .title{
+        font-size:30px
+    }
+    .rating{
+        text-align: left;
+    }
+</style>
 <div class='container'>
-    <div class='single-book row'>
+    <div class='single-book row' style="padding:10px">
         <img class='book-img col-md-2' src='<?php echo get_the_post_thumbnail_url(get_the_ID()); ?>'>
-        <div class='details col-md-4'>
-            <h2 class="title"><?php the_title(); ?></h2>
-            <?php if($book_author): ?>
-            <p dir="ltr">
-                by
-                <a href="<?php echo get_term_link($book_author->term_id, 'book-author'); ?>" class="author">
-                    <?php echo ucfirst($book_author->name); ?>
-                </a>
-            </p>
+        <div class='details col-md-4' style="text-align: right;">
+            <h2 class="title" style="margin:0"><?php the_title(); ?></h2>
+            <?php if ($book_author) : ?>
+                <p style="text-align: left;">
+                    by
+                    <a href="<?php echo get_term_link($book_author->term_id, 'book-author'); ?>" class="author">
+                        <?php echo ucfirst($book_author->name); ?>
+                    </a>
+                </p>
             <?php endif; ?>
             <div class="rating">
                 <span class="icons" dir='ltr'>
@@ -65,7 +72,7 @@ function rating($comment_id, $rating_val = null)
 
             </div>
             <div class="comments-section">
-                <h1 class="comments-section-title">التعليقات على المنتج</h1>
+                <h1 class="comments-section-title title">التعليقات على المنتج</h1>
                 <?php
                 // comments_template(); 
 
@@ -96,17 +103,18 @@ function rating($comment_id, $rating_val = null)
                 ?>
             </div>
         </div>
-        <div class="col-md-1"></div>
-        <div class="col-md-3 quotes">
-            <h2 class="title">Quotes</h2>
+        <?php
+        if (!empty(json_decode($post_quotes))) { ?>
+            <div class="col-md-1"></div>
+            <div class="col-md-3 quotes">
+                <h2 class="title">Quotes</h2>
             <?php
-            if (!empty(json_decode($post_quotes))) {
-                foreach (json_decode($post_quotes) as $key => $quote) {
-                    echo "<p>$quote</p>";
-                }
+            foreach (json_decode($post_quotes) as $key => $quote) {
+                echo "<p>$quote</p>";
             }
+        }
             ?>
-        </div>
+            </div>
     </div>
 </div>
 <?php get_footer(); ?>

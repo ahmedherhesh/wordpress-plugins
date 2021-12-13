@@ -24,7 +24,7 @@ foreach (scandir($path) as $key => $file) {
         }
     }
 }
-
+// books template
 function herhesh_books_template($template)
 {
     global $post;
@@ -35,11 +35,12 @@ function herhesh_books_template($template)
 }
 add_filter('single_template', 'herhesh_books_template');
 
+//author template
 function herhesh_books_author_template($template)
 {
-    if (is_author()) {
+    // if (is_author()) {
         $template = plugin_dir_path(__FILE__) . 'templates/book-author-template.php';
-    }
+    // }
     return $template;
 }
 add_filter('template_include', 'herhesh_books_author_template');

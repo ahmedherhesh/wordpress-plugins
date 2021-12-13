@@ -24,10 +24,10 @@
   max-width: 250px;
 }
 .single-book .details {
-  direction: rtl;
+  text-align: right;
 }
 .single-book .details .rating,.single-book .details .author{
-    direction: ltr;
+    text-align: left;
 }
 .container .row{
     justify-content: center;

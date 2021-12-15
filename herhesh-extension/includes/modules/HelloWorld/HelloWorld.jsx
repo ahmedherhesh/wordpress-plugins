@@ -11,10 +11,9 @@ class HelloWorld extends Component {
 
   render() {
     const Content = this.props.content;
-    const Ahmed = this.props.ahmed;
+    // const Ahmed   = this.props.ahmed;
     return (
       <h1>
-        <Ahmed/>
         <Content/>
       </h1>
     );

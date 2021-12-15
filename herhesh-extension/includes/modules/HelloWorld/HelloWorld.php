@@ -15,16 +15,6 @@ class HEEX_HelloWorld extends ET_Builder_Module
 	public function init()
 	{
 		$this->name = esc_html__('Herhesh Extension', 'heex-herhesh-extension');
-		$this->custom_css_fields = array(
-			'title' => array(
-				'label'    => esc_html__( 'Title', 'dicm-divi-custom-modules' ),
-				'selector' => '.et-title',
-			),
-			'content-controller' => array(
-				'label'    => esc_html__( 'Button', 'dicm-divi-custom-modules' ),
-				'selector' => '.et_pb_button',
-			),
-		);
 	}
 
 	public function get_fields()
@@ -35,28 +25,28 @@ class HEEX_HelloWorld extends ET_Builder_Module
 				'type'            => 'tiny_mce',
 				'option_category' => 'basic_option',
 				'show_if'  => [
-					'content-controller' => 'on'
+					'content_controller' => 'on'
 				],
 				'description'     => esc_html__('Content entered here will appear inside the module.', 'heex-herhesh-extension'),
 				'toggle_slug'     => 'main_content',
 			),
-			'content-controller' => array(
-				'label'           => esc_html__('content-controller', 'heex-herhesh-extension'),
+			'content_controller' => array(
+				'label'           => esc_html__('content_controller', 'heex-herhesh-extension'),
 				'type'            => 'select',
 				'options'		  => [
+					'off'   => 'off',
 					'on'    => 'on',
-					'off'   => 'off'
 				],
 				'option_category' => 'basic_option',
 				'description'     => esc_html__('text entered here will appear inside the module.', 'heex-herhesh-extension'),
-				// 'toggle_slug'     => 'main_content',
+				'toggle_slug'     => 'input',
 			),
 		);
 	}
 
 	public function render($attrs, $content = null, $render_slug)
 	{
-		return sprintf('<h1>%1$s%2$s</h1>', $this->props['content-controller'], $this->props['content']);
+		return sprintf('<h1>%1$s</h1>', $this->props['content']);
 	}
 }
 
